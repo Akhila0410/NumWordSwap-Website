@@ -1,12 +1,34 @@
 <mat-card>
     <mat-card-content>
-        <form class="ns">
-            <mat-form-field class="example-full-width">
-              <mat-label>Telephone</mat-label>
-              <span matPrefix>+1 &nbsp;</span>
-              <input type="tel" matInput placeholder="555-555-1234">
-              <mat-icon matSuffix>mode_edit</mat-icon>
+        <form class="nws-form">
+
+          <h3>Enter Max Number</h3>
+          <mat-form-field class="full-width">
+              <input type="number" min="1" max="1000" matInput placeholder="1 to 1000" required stateChanges="">
             </mat-form-field>
+            <h3>Enter Multiples and Word Swaps</h3>
+            <mat-grid-list cols="3">
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <input type="number" min="1" max="1000" matInput placeholder="Multiple">
+              </mat-form-field>
+            </mat-grid-tile> 
+
+            <mat-grid-tile >
+            <mat-form-field>
+              <input type="text" matInput placeholder="Swap Word">
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile >
+              <button mat-icon-button color="primary" aria-label="Add Multiple Swap Word">
+                <mat-icon>add</mat-icon>
+              </button>
+          
+
+            </mat-grid-tile>
+          </mat-grid-list>
           </form>
     </mat-card-content>
   </mat-card>

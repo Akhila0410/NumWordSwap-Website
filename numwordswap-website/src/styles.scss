@@ -3,4 +3,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-$base-width: 16px;
+$base-width: 8px;
+
+.padding-base{
+    padding:$base-width;
+}
