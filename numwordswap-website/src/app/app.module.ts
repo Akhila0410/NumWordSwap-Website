@@ -6,11 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { NumSwapInputComponent } from './num-swap-input/num-swap-input.component';
+import { NumSwapInputComponent } from './nws-input/nws-input.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { NumSwapResultComponent } from './num-swap-result/num-swap-result.component';
+import { NumSwapResultComponent } from './nws-result/nws-result.component';
 
 @NgModule({
   declarations: [

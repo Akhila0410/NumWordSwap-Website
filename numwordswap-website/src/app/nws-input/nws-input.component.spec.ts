@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumSwapInputComponent } from './num-swap-input.component';
+import { NumSwapInputComponent } from './nws-input.component';
 
 describe('NumSwapInputComponent', () => {
   let component: NumSwapInputComponent;
