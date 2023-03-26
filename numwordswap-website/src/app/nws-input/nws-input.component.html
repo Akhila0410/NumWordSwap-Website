@@ -1,35 +1,24 @@
-<mat-card>
-    <mat-card-content>
-        <form class="nws-form">
+<div class="card">
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <h3 class="form-label">Input Max Number</h3>
+        <input type="number" class="form-control" id="maxNumber" aria-describedby="Input Max Number" placeholder="Ex: 100">
+      </div>
 
-          <h3>Enter Max Number</h3>
-          <mat-form-field class="full-width">
-              <input type="number" min="1" max="1000" matInput placeholder="1 to 1000" required stateChanges="">
-            </mat-form-field>
-            <h3>Enter Multiples and Word Swaps</h3>
-            <mat-grid-list cols="3">
+      <h3 class="form-label">Enter the Multiple & Swap Words</h3>
+      <div class="mb-3 row">
+        <div class="col">
+        <input type="number" class="form-control" aria-describedby="Enter Multiple" placeholder="Multiple">
+      </div>
+      <div class="col p-0">
+        <input type="text" class="form-control" aria-describedby="Enter Swap Word" placeholder="Swap Word">
+     </div>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <input type="number" min="1" max="1000" matInput placeholder="Multiple">
-              </mat-form-field>
-            </mat-grid-tile> 
-
-            <mat-grid-tile >
-            <mat-form-field>
-              <input type="text" matInput placeholder="Swap Word">
-            </mat-form-field>
-          </mat-grid-tile>
-
-          <mat-grid-tile >
-              <button mat-icon-button color="primary" aria-label="Add Multiple Swap Word">
-                <mat-icon>add</mat-icon>
-              </button>
-          
-
-            </mat-grid-tile>
-          </mat-grid-list>
-          </form>
-    </mat-card-content>
-  </mat-card>
- 
+     <div class="col">
+      <button type="button" class="btn btn-primary" (click)="Add()">Add</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

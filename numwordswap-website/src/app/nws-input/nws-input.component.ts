@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'nws-input',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./nws-input.component.scss']
 })
 export class NumSwapInputComponent {
+
+  maxNumber: number = 0;
+  Add() {
+
+  }
 
 }
