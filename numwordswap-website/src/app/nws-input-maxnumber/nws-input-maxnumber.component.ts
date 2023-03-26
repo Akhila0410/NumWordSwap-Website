@@ -15,9 +15,9 @@ export class NwsInputMaxnumberComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.maxNumber.valueChanges.subscribe(value => this.updateRequest(parseInt(value || "0")))
+    this.maxNumber.valueChanges.subscribe(value => this.updateMaxNumber(parseInt(value || "0")))
   }
-  updateRequest(value: number) {
+  updateMaxNumber(value: number) {
     if (this.maxNumber.valid) {
       console.log('Entered new Max Number:', value);
       this.nwsService.setMaxNumber(value);

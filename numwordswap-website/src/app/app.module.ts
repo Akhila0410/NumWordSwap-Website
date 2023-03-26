@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NwsInputMaxnumberComponent } from './nws-input-maxnumber/nws-input-maxnumber.component';
 import { NwsInputMultipleswapwordAddComponent } from './nws-input-multipleswapword-add/nws-input-multipleswapword-add.component';
 import { NwsInputMultipleswapwordEditComponent } from './nws-input-multipleswapword-edit/nws-input-multipleswapword-edit.component';
+import { NwsInputSortedorderComponent } from './nws-input-sortedorder/nws-input-sortedorder.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { NwsInputMultipleswapwordEditComponent } from './nws-input-multipleswapw
     NumSwapResultComponent,
     NwsInputMaxnumberComponent,
     NwsInputMultipleswapwordAddComponent,
-    NwsInputMultipleswapwordEditComponent
+    NwsInputMultipleswapwordEditComponent,
+    NwsInputSortedorderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { NwsInputMultipleswapwordEditComponent } from './nws-input-multipleswapw
     MatCardModule,
     MatInputModule,
     MatGridListModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

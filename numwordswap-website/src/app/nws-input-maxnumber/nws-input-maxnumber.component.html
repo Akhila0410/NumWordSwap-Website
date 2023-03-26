@@ -1,7 +1,8 @@
 <form>
     <div class="mb-3">
       <h3 class="form-label">Input Max Number</h3>
-      <input matInput type="number" class="form-control mb-2" id="maxNumber" aria-describedby="Input Max Number" placeholder="Ex: 100" [formControl]="maxNumber">
+      <input matInput type="number" class="form-control mb-2" id="maxNumber" 
+             aria-describedby="Input Max Number" placeholder="Ex: 100" [formControl]="maxNumber">
       <mat-hint>Please Enter a number between 1 and 1000</mat-hint>
       <div *ngIf="maxNumber.invalid && (maxNumber.dirty || maxNumber.touched)"
             class="alert alert-danger p-2">
@@ -14,5 +15,4 @@
           </div>
         </div>
     </div>
-    </form>
-    
+</form>

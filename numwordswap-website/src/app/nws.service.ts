@@ -26,6 +26,11 @@ export class NwsService {
     this.getNwsResponse();
   }
 
+  setSortedOrder(value: boolean) {
+    this.nwsRequest.sortedOrder = value;
+    this.getNwsResponse();
+  }
+
   addNumWordSwap(numWordSwap: NumWordSwap) {
     this.nwsRequest.numWordSwaps?.push(numWordSwap);
     this.getNwsResponse();

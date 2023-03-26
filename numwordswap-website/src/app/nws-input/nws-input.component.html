@@ -1,10 +1,13 @@
 <div class="card">
   <div class="card-body">
     <nws-input-maxnumber></nws-input-maxnumber>
+    <nws-input-sortedorder></nws-input-sortedorder>
     <h3 class="form-label">Enter the Multiple & Swap Words</h3>
     <div class="row" *ngFor="let nws of requestNumWordSwaps">
        <nws-input-multipleswapword-edit [numWordSwap]="nws"></nws-input-multipleswapword-edit>
     </div>
-    <nws-input-multipleswapword-add></nws-input-multipleswapword-add>
+    <div class="row">
+      <nws-input-multipleswapword-add></nws-input-multipleswapword-add>
+    </div>
   </div>
 </div>
