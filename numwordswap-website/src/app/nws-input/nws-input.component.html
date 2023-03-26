@@ -1,36 +1,7 @@
 <div class="card">
   <div class="card-body">
-    <form>
-      <div class="mb-3">
-        <h3 class="form-label">Input Max Number</h3>
-        <input matInput type="number" class="form-control mb-2" id="maxNumber" aria-describedby="Input Max Number" placeholder="Ex: 100" [formControl]="maxNumber">
-        <mat-hint>Please Enter a number between 1 and 1000</mat-hint>
-        <div *ngIf="maxNumber.invalid && (maxNumber.dirty || maxNumber.touched)"
-              class="alert alert-danger p-2">
-
-            <div *ngIf="maxNumber.errors?.['min']">
-              The minimum valid number is 1.
-            </div>
-            <div *ngIf="maxNumber.errors?.['max']">
-              The maximum valid number is 1000.
-            </div>
-          </div>
-      </div>
-
-      <h3 class="form-label">Enter the Multiple & Swap Words</h3>
-      <div class="mb-3 row">
-        <div class="col">
-        <input type="number" class="form-control" aria-describedby="Enter Multiple" placeholder="Multiple">
-        
-      </div>
-      <div class="col p-0">
-        <input type="text" class="form-control" aria-describedby="Enter Swap Word" placeholder="Swap Word">
-     </div>
-
-     <div class="col">
-      <button type="button" class="btn btn-primary">Add</button>
-      </div>
-    </div>
-    </form>
+    <nws-input-maxnumber></nws-input-maxnumber>
+    <h3 class="form-label">Enter the Multiple & Swap Words</h3>
+   <nws-input-multipleswapword></nws-input-multipleswapword>
   </div>
 </div>

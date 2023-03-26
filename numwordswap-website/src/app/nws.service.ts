@@ -6,12 +6,20 @@ import { ApiException, INumWordSwap, INumWordSwapRequest, NumWordSwap, NumWordSw
 })
 export class NwsService {
 
-  constructor() { }
   nwsClient: NumWordSwapClient = new NumWordSwapClient();
   nwsRequest: NumWordSwapRequest = new NumWordSwapRequest({
-    maxNumber: 0, sortedOrder: false
+    maxNumber: 0, numWordSwaps: [], sortedOrder: false
   });
   nwsResponse: NumWordSwap[] = [];
+
+  setMaxNumber(value: number) {
+    this.nwsRequest.maxNumber = value;
+    this.getNwsResponse();
+  }
+  addNumWordSwap(numWordSwap: NumWordSwap) {
+    this.nwsRequest.numWordSwaps?.push(numWordSwap);
+    this.getNwsResponse();
+  }
 
   getNwsResponse() {
     this.nwsClient.getSwappedNumWords(this.nwsRequest)

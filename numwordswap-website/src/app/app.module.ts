@@ -12,11 +12,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NumSwapResultComponent } from './nws-result/nws-result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NwsInputMaxnumberComponent } from './nws-input-maxnumber/nws-input-maxnumber.component';
+import { NwsInputMultipleswapwordComponent } from './nws-input-multipleswapword/nws-input-multipleswapword.component';
 @NgModule({
   declarations: [
     AppComponent,
     NumSwapInputComponent,
-    NumSwapResultComponent
+    NumSwapResultComponent,
+    NwsInputMaxnumberComponent,
+    NwsInputMultipleswapwordComponent
   ],
   imports: [
     BrowserModule,

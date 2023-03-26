@@ -1,0 +1,35 @@
+<form>
+    <div class="mb-3 row">
+        <div class="col">
+      <input type="number" class="form-control" aria-describedby="Enter Multiple" placeholder="Multiple" [formControl]="multiple">
+        </div>
+        <div class="col p-0">
+            <input type="text" class="form-control" aria-describedby="Enter Swap Word" placeholder="Swap Word" [formControl]="wordSwap">
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary" [disabled]="!canAddMultipleSwapWord" (click)="addMultipleSwapWord()">Add</button>
+        </div>
+    </div>
+  <div class="mb-3 row">
+    <mat-hint>Enter a numerical multiple between 1 and 1000 and a swap word to begin swapping number multiples with words</mat-hint>
+   
+    <div *ngIf="multiple.invalid && (multiple.dirty || multiple.touched)"
+            class="alert alert-danger p-2">
+
+          <div *ngIf="multiple.errors?.['min']">
+            The minimum valid number is 1.
+          </div>
+          <div *ngIf="multiple.errors?.['max']">
+            The maximum valid number is 1000.
+          </div>
+    </div>
+
+    <div *ngIf="wordSwap.invalid && (wordSwap.dirty || wordSwap.touched)"
+            class="alert alert-danger p-2">
+
+        <div *ngIf="wordSwap.errors?.['minLength']">
+        Please enter atleast 1 letter in the swap word.
+        </div>
+    </div>
+   </div>
+</form>
