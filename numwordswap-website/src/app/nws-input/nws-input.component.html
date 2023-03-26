@@ -3,8 +3,18 @@
     <form>
       <div class="mb-3">
         <h3 class="form-label">Input Max Number</h3>
-        <input matInput type="number" class="form-control" id="maxNumber" aria-describedby="Input Max Number" placeholder="Ex: 100" [formControl]="maxNumber">
-     <mat-hint>Please Enter a number between 1 and 1000</mat-hint>
+        <input matInput type="number" class="form-control mb-2" id="maxNumber" aria-describedby="Input Max Number" placeholder="Ex: 100" [formControl]="maxNumber">
+        <mat-hint>Please Enter a number between 1 and 1000</mat-hint>
+        <div *ngIf="maxNumber.invalid && (maxNumber.dirty || maxNumber.touched)"
+              class="alert alert-danger p-2">
+
+            <div *ngIf="maxNumber.errors?.['min']">
+              The minimum valid number is 1.
+            </div>
+            <div *ngIf="maxNumber.errors?.['max']">
+              The maximum valid number is 1000.
+            </div>
+          </div>
       </div>
 
       <h3 class="form-label">Enter the Multiple & Swap Words</h3>
