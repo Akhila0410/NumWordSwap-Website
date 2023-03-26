@@ -28,8 +28,9 @@ export class NumWordSwapClient {
             body: content_,
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
             }
         };
 
@@ -157,7 +158,7 @@ export interface INumWordSwapRequest {
 }
 
 export class ApiException extends Error {
-    message: string;
+    // message: string;
     status: number;
     response: string;
     headers: { [key: string]: any; };

@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NumSwapResultComponent } from './nws-result/nws-result.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,8 @@ import { NumSwapResultComponent } from './nws-result/nws-result.component';
     MatIconModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

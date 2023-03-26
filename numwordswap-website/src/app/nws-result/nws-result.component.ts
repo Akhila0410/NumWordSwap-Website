@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NumWordSwap } from 'generated/NumWordSwapModels';
+import { NwsService } from '../nws.service';
 
 @Component({
   selector: 'nws-result',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class NumSwapResultComponent {
 
+  constructor(private nwsService: NwsService) {
+
+  }
+
+  get numWordSwaps(): NumWordSwap[] {
+    return this.nwsService.nwsResponse;
+  }
 }
