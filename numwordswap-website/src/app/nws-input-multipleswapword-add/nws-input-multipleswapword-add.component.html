@@ -1,7 +1,7 @@
 <form>
-    <div class="mb-3 row">
+    <div class="mb-2 row">
         <div class="col">
-      <input type="number" class="form-control" aria-describedby="Enter Multiple" placeholder="Multiple" [formControl]="multiple">
+          <input type="number" class="{{'form-control ' + (multipleAlreadyExists ? 'is-invalid' : '')}}" aria-describedby="Enter Multiple" placeholder="Multiple" [formControl]="multiple">
         </div>
         <div class="col p-0">
             <input type="text" class="form-control" aria-describedby="Enter Swap Word" placeholder="Swap Word" [formControl]="wordSwap">
@@ -10,11 +10,11 @@
             <button type="button" class="btn btn-primary" [disabled]="!canAddMultipleSwapWord" (click)="addMultipleSwapWord()">Add</button>
         </div>
     </div>
-  <div class="mb-3 row">
+  <div class="mb-2 row">
     <mat-hint>Enter a numerical multiple between 1 and 1000 and a swap word to begin swapping number multiples with words</mat-hint>
-   
-    <div *ngIf="multiple.invalid && (multiple.dirty || multiple.touched)"
-            class="alert alert-danger p-2">
+  </div>
+  <div class="mb-2 row px-2">
+    <div *ngIf="multiple.invalid && (multiple.dirty || multiple.touched)" class=" alert alert-danger">
 
           <div *ngIf="multiple.errors?.['min']">
             The minimum valid number is 1.
@@ -23,9 +23,13 @@
             The maximum valid number is 1000.
           </div>
     </div>
+    <div *ngIf="multipleAlreadyExists" class=" alert alert-danger">
+      <div>
+        The multiple {{this.multiple.value}} already exists. 
+      </div>
+    </div>
 
-    <div *ngIf="wordSwap.invalid && (wordSwap.dirty || wordSwap.touched)"
-            class="alert alert-danger p-2">
+    <div *ngIf="wordSwap.invalid && (wordSwap.dirty || wordSwap.touched)" class=" alert alert-danger">
 
         <div *ngIf="wordSwap.errors?.['minLength']">
         Please enter atleast 1 letter in the swap word.

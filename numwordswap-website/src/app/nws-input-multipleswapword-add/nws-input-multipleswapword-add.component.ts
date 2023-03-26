@@ -17,8 +17,13 @@ export class NwsInputMultipleswapwordAddComponent {
 
   }
 
+  get multipleAlreadyExists(): boolean {
+    return !!this.nwsService.nwsRequest.numWordSwaps
+      && this.nwsService.nwsRequest.numWordSwaps.findIndex(nws => (nws.number == parseInt(this.multiple.value || "0"))) >= 0;
+  }
+
   get canAddMultipleSwapWord(): boolean {
-    return !!this.multiple.value && this.multiple.valid && !!this.wordSwap.value && this.wordSwap.valid;
+    return !!this.multiple.value && this.multiple.valid && !!this.wordSwap.value && this.wordSwap.valid && !this.multipleAlreadyExists;
   }
 
   addMultipleSwapWord() {
@@ -29,4 +34,5 @@ export class NwsInputMultipleswapwordAddComponent {
       this.wordSwap.reset();
     }
   }
+
 }

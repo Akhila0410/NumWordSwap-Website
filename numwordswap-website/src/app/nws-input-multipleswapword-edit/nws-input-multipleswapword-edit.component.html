@@ -11,10 +11,10 @@
             <button *ngIf="!canSaveMultipleSwapWord" type="button" class="btn btn-danger" (click)="deleteMultipleSwapWord()">Delete</button>
         </div>
     </div>
-  <div class="mb-3 row">
+  <div class="mb-2 row px-2">
    
     <div *ngIf="newMultiple.invalid && (newMultiple.dirty || newMultiple.touched)"
-            class="alert alert-danger p-2">
+            class="alert alert-danger">
 
           <div *ngIf="newMultiple.errors?.['min']">
             The minimum valid number is 1.
@@ -25,7 +25,7 @@
     </div>
 
     <div *ngIf="newWordSwap.invalid && (newWordSwap.dirty || newWordSwap.touched)"
-            class="alert alert-danger p-2">
+            class="alert alert-danger">
 
         <div *ngIf="newWordSwap.errors?.['minLength']">
         Please enter atleast 1 letter in the swap word.

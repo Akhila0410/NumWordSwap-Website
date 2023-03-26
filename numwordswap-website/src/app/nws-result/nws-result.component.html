@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h3>Swapped Numbers</h3>
+        <h3>Numbers swapped with words at each multiple</h3>
         <div class="d-flex align-content-start flex-wrap">
             <div *ngFor="let numWordSwap of numWordSwaps">
                 <button type="button" class="{{'btn p-2 m-2 ' + ((numWordSwap.number.toString() == numWordSwap.wordSwap) ? 'btn-light' : 'btn-info')}}">{{numWordSwap.wordSwap}}</button>
