@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiException, INumWordSwap, INumWordSwapRequest, NumWordSwap, NumWordSwapClient, NumWordSwapRequest } from 'generated/NumWordSwapModels';
+import { NumWordSwap, NumWordSwapClient, NumWordSwapRequest } from 'generated/NumWordSwapModels';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,6 @@ export class NwsService {
   });
   nwsResponse: NumWordSwap[] = [];
 
-  setMaxNumber(value: number) {
-    this.nwsRequest.maxNumber = value;
-    this.getNwsResponse();
-  }
-  addNumWordSwap(numWordSwap: NumWordSwap) {
-    this.nwsRequest.numWordSwaps?.push(numWordSwap);
-    this.getNwsResponse();
-  }
 
   getNwsResponse() {
     this.nwsClient.getSwappedNumWords(this.nwsRequest)
@@ -27,5 +19,31 @@ export class NwsService {
       .catch(error => {
         console.error(`Get Num Word Swaps exception: ${error}`);
       });
+  }
+
+  setMaxNumber(value: number) {
+    this.nwsRequest.maxNumber = value;
+    this.getNwsResponse();
+  }
+
+  addNumWordSwap(numWordSwap: NumWordSwap) {
+    this.nwsRequest.numWordSwaps?.push(numWordSwap);
+    this.getNwsResponse();
+  }
+
+  saveNumWordSwap(currNumWordSwap: NumWordSwap, newNumWordSwap: NumWordSwap) {
+    if (!!this.nwsRequest.numWordSwaps && this.nwsRequest.numWordSwaps.length > 0) {
+      let index: number = this.nwsRequest.numWordSwaps?.indexOf(currNumWordSwap)
+      this.nwsRequest.numWordSwaps[index] = newNumWordSwap;
+      this.getNwsResponse();
+    }
+  }
+
+  deleteNumWordSwap(currNumWordSwap: NumWordSwap) {
+    if (!!this.nwsRequest.numWordSwaps && this.nwsRequest.numWordSwaps.length > 0) {
+      let index: number = this.nwsRequest.numWordSwaps?.indexOf(currNumWordSwap)
+      this.nwsRequest.numWordSwaps.splice(index, 1);
+      this.getNwsResponse();
+    }
   }
 }

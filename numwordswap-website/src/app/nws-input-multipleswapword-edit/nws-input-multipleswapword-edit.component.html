@@ -1,0 +1,35 @@
+<form>
+    <div class="row">
+        <div class="col">
+      <input type="number" class="form-control" aria-describedby="Enter Multiple" placeholder="Multiple" [formControl]="newMultiple">
+        </div>
+        <div class="col p-0">
+            <input type="text" class="form-control" aria-describedby="Enter Swap Word" placeholder="Swap Word" [formControl]="newWordSwap">
+        </div>
+        <div class="col">
+            <button *ngIf="canSaveMultipleSwapWord" type="button" class="btn btn-primary" (click)="saveMultipleSwapWord()">Save</button>
+            <button *ngIf="!canSaveMultipleSwapWord" type="button" class="btn btn-danger" (click)="deleteMultipleSwapWord()">Delete</button>
+        </div>
+    </div>
+  <div class="mb-3 row">
+   
+    <div *ngIf="newMultiple.invalid && (newMultiple.dirty || newMultiple.touched)"
+            class="alert alert-danger p-2">
+
+          <div *ngIf="newMultiple.errors?.['min']">
+            The minimum valid number is 1.
+          </div>
+          <div *ngIf="newMultiple.errors?.['max']">
+            The maximum valid number is 1000.
+          </div>
+    </div>
+
+    <div *ngIf="newWordSwap.invalid && (newWordSwap.dirty || newWordSwap.touched)"
+            class="alert alert-danger p-2">
+
+        <div *ngIf="newWordSwap.errors?.['minLength']">
+        Please enter atleast 1 letter in the swap word.
+        </div>
+    </div>
+   </div>
+</form>

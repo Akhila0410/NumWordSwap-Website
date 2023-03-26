@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { NumWordSwap } from 'generated/NumWordSwapModels';
 import { NwsService } from '../nws.service';
 
 @Component({
@@ -9,4 +10,10 @@ import { NwsService } from '../nws.service';
 })
 export class NumSwapInputComponent {
 
+  constructor(private nwsService: NwsService) {
+
+  }
+  get requestNumWordSwaps(): NumWordSwap[] {
+    return this.nwsService.nwsRequest.numWordSwaps || [];
+  }
 }

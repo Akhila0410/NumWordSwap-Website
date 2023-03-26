@@ -13,14 +13,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NumSwapResultComponent } from './nws-result/nws-result.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NwsInputMaxnumberComponent } from './nws-input-maxnumber/nws-input-maxnumber.component';
-import { NwsInputMultipleswapwordComponent } from './nws-input-multipleswapword/nws-input-multipleswapword.component';
+import { NwsInputMultipleswapwordAddComponent } from './nws-input-multipleswapword-add/nws-input-multipleswapword-add.component';
+import { NwsInputMultipleswapwordEditComponent } from './nws-input-multipleswapword-edit/nws-input-multipleswapword-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     NumSwapInputComponent,
     NumSwapResultComponent,
     NwsInputMaxnumberComponent,
-    NwsInputMultipleswapwordComponent
+    NwsInputMultipleswapwordAddComponent,
+    NwsInputMultipleswapwordEditComponent
   ],
   imports: [
     BrowserModule,
