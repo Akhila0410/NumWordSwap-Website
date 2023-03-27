@@ -16,4 +16,8 @@ export class NumSwapResultComponent {
   get numWordSwaps(): NumWordSwap[] {
     return this.nwsService.nwsResponse;
   }
+
+  get displayWelcomeMessage(): boolean {
+    return !this.numWordSwaps || this.numWordSwaps.length == 0;
+  }
 }
