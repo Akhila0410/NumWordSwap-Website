@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { NumWordSwap } from 'generated/NumWordSwapModels';
+import { MultipleWordSwap } from 'generated/NumWordSwapModels';
 import { NwsService } from '../nws.service';
 
 @Component({
@@ -18,8 +18,8 @@ export class NwsInputMultipleswapwordAddComponent {
   }
 
   get multipleAlreadyExists(): boolean {
-    return !!this.nwsService.nwsRequest.numWordSwaps
-      && this.nwsService.nwsRequest.numWordSwaps.findIndex(nws => (nws.number == parseInt(this.multiple.value || "0"))) >= 0;
+    return !!this.nwsService.nwsRequest.multipleWordSwaps
+      && this.nwsService.nwsRequest.multipleWordSwaps.findIndex(mws => (mws.multiple == parseInt(this.multiple.value || "0"))) >= 0;
   }
 
   get canAddMultipleSwapWord(): boolean {
@@ -29,7 +29,7 @@ export class NwsInputMultipleswapwordAddComponent {
   addMultipleSwapWord() {
     if (this.canAddMultipleSwapWord) {
       console.log(`Adding Swap word of ${this.wordSwap.value} for multiple ${this.multiple.value}`);
-      this.nwsService.addNumWordSwap(new NumWordSwap({ number: parseInt(this.multiple.value || ""), wordSwap: (this.wordSwap.value || "") }));
+      this.nwsService.addMultipleWordSwap(new MultipleWordSwap({ multiple: parseInt(this.multiple.value || ""), wordSwap: (this.wordSwap.value || "") }));
       this.multiple.reset();
       this.wordSwap.reset();
     }

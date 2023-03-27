@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NumWordSwap, NumWordSwapClient, NumWordSwapRequest } from 'generated/NumWordSwapModels';
+import { MultipleWordSwap, NumberSwapedWord, NumWordSwapClient, NumWordSwapRequest } from 'generated/NumWordSwapModels';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,9 @@ export class NwsService {
 
   nwsClient: NumWordSwapClient = new NumWordSwapClient();
   nwsRequest: NumWordSwapRequest = new NumWordSwapRequest({
-    maxNumber: 0, numWordSwaps: [], sortedOrder: false
+    maxNumber: 0, multipleWordSwaps: [], sortedOrder: false
   });
-  nwsResponse: NumWordSwap[] = [];
+  nwsResponse: NumberSwapedWord[] = [];
 
 
   getNwsResponse() {
@@ -31,23 +31,23 @@ export class NwsService {
     this.getNwsResponse();
   }
 
-  addNumWordSwap(numWordSwap: NumWordSwap) {
-    this.nwsRequest.numWordSwaps?.push(numWordSwap);
+  addMultipleWordSwap(numWordSwap: MultipleWordSwap) {
+    this.nwsRequest.multipleWordSwaps?.push(numWordSwap);
     this.getNwsResponse();
   }
 
-  saveNumWordSwap(currNumWordSwap: NumWordSwap, newNumWordSwap: NumWordSwap) {
-    if (!!this.nwsRequest.numWordSwaps && this.nwsRequest.numWordSwaps.length > 0) {
-      let index: number = this.nwsRequest.numWordSwaps?.indexOf(currNumWordSwap)
-      this.nwsRequest.numWordSwaps[index] = newNumWordSwap;
+  saveMultipleWordSwap(currNumWordSwap: MultipleWordSwap, newNumWordSwap: MultipleWordSwap) {
+    if (!!this.nwsRequest.multipleWordSwaps && this.nwsRequest.multipleWordSwaps.length > 0) {
+      let index: number = this.nwsRequest.multipleWordSwaps?.indexOf(currNumWordSwap)
+      this.nwsRequest.multipleWordSwaps[index] = newNumWordSwap;
       this.getNwsResponse();
     }
   }
 
-  deleteNumWordSwap(currNumWordSwap: NumWordSwap) {
-    if (!!this.nwsRequest.numWordSwaps && this.nwsRequest.numWordSwaps.length > 0) {
-      let index: number = this.nwsRequest.numWordSwaps?.indexOf(currNumWordSwap)
-      this.nwsRequest.numWordSwaps.splice(index, 1);
+  deleteMultipleWordSwap(currNumWordSwap: MultipleWordSwap) {
+    if (!!this.nwsRequest.multipleWordSwaps && this.nwsRequest.multipleWordSwaps.length > 0) {
+      let index: number = this.nwsRequest.multipleWordSwaps?.indexOf(currNumWordSwap)
+      this.nwsRequest.multipleWordSwaps.splice(index, 1);
       this.getNwsResponse();
     }
   }

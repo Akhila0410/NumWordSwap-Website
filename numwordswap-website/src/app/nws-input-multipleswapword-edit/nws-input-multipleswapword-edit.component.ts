@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { NumWordSwap } from 'generated/NumWordSwapModels';
+import { MultipleWordSwap } from 'generated/NumWordSwapModels';
 import { NwsService } from '../nws.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { NwsService } from '../nws.service';
 })
 export class NwsInputMultipleswapwordEditComponent implements OnInit {
 
-  @Input() numWordSwap!: NumWordSwap;
+  @Input() multipleWordSwap!: MultipleWordSwap;
 
   newMultiple = new FormControl('', [Validators.max(1000), Validators.min(1)]);
   newWordSwap = new FormControl('', [Validators.minLength(1)]);
@@ -20,24 +20,24 @@ export class NwsInputMultipleswapwordEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.newMultiple.setValue(this.numWordSwap.number.toString());
-    this.newWordSwap.setValue(this.numWordSwap.wordSwap || "");
+    this.newMultiple.setValue(this.multipleWordSwap.multiple.toString());
+    this.newWordSwap.setValue(this.multipleWordSwap.wordSwap || "");
   }
 
   get canSaveMultipleSwapWord(): boolean {
     return (!!this.newMultiple.value && this.newMultiple.valid && !!this.newWordSwap.value && this.newWordSwap.valid)
-      && ((this.newMultiple.dirty && this.newMultiple.value != this.numWordSwap.number.toString()) || (this.newWordSwap.dirty && this.newWordSwap.value != this.numWordSwap.wordSwap));
+      && ((this.newMultiple.dirty && this.newMultiple.value != this.multipleWordSwap.multiple.toString()) || (this.newWordSwap.dirty && this.newWordSwap.value != this.multipleWordSwap.wordSwap));
   }
 
   saveMultipleSwapWord() {
     if (this.canSaveMultipleSwapWord) {
       console.log(`Saving Swap word of ${this.newWordSwap.value} for multiple ${this.newMultiple.value}`);
-      this.nwsService.saveNumWordSwap(this.numWordSwap,
-        new NumWordSwap({ number: parseInt(this.newMultiple.value || "") || 1001, wordSwap: (this.newWordSwap.value || "") }));
+      this.nwsService.saveMultipleWordSwap(this.multipleWordSwap,
+        new MultipleWordSwap({ multiple: parseInt(this.newMultiple.value || "") || 1001, wordSwap: (this.newWordSwap.value || "") }));
     }
   }
 
   deleteMultipleSwapWord() {
-    this.nwsService.deleteNumWordSwap(this.numWordSwap);
+    this.nwsService.deleteMultipleWordSwap(this.multipleWordSwap);
   }
 }

@@ -3,8 +3,8 @@
     <nws-input-maxnumber></nws-input-maxnumber>
     <nws-input-sortedorder></nws-input-sortedorder>
     <h3 class="form-label mb-0">Enter the Multiple & Swap Words</h3>
-    <div class="row" *ngFor="let nws of requestNumWordSwaps">
-       <nws-input-multipleswapword-edit [numWordSwap]="nws"></nws-input-multipleswapword-edit>
+    <div class="row" *ngFor="let mws of requestMultipleWordSwaps">
+       <nws-input-multipleswapword-edit [multipleWordSwap]="mws"></nws-input-multipleswapword-edit>
     </div>
     <div class="row">
       <nws-input-multipleswapword-add></nws-input-multipleswapword-add>

@@ -18,7 +18,7 @@ export class NumWordSwapClient {
         this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "https://localhost:7152";
     }
 
-    getSwappedNumWords(request: NumWordSwapRequest): Promise<NumWordSwap[]> {
+    getSwappedNumWords(request: NumWordSwapRequest): Promise<NumberSwapedWord[]> {
         let url_ = this.baseUrl + "/api/getswappednumwords";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -28,9 +28,8 @@ export class NumWordSwapClient {
             body: content_,
             method: "POST",
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }
         };
 
@@ -39,7 +38,7 @@ export class NumWordSwapClient {
         });
     }
 
-    protected processGetSwappedNumWords(response: Response): Promise<NumWordSwap[]> {
+    protected processGetSwappedNumWords(response: Response): Promise<NumberSwapedWord[]> {
         const status = response.status;
         let _headers: any = {}; if (response.headers && response.headers.forEach) { response.headers.forEach((v: any, k: any) => _headers[k] = v); };
         if (status === 200) {
@@ -49,7 +48,7 @@ export class NumWordSwapClient {
                 if (Array.isArray(resultData200)) {
                     result200 = [] as any;
                     for (let item of resultData200)
-                        result200!.push(NumWordSwap.fromJS(item));
+                        result200!.push(NumberSwapedWord.fromJS(item));
                 }
                 else {
                     result200 = <any>null;
@@ -61,15 +60,15 @@ export class NumWordSwapClient {
                 return throwException("An unexpected server error occurred.", status, _responseText, _headers);
             });
         }
-        return Promise.resolve<NumWordSwap[]>(null as any);
+        return Promise.resolve<NumberSwapedWord[]>(null as any);
     }
 }
 
-export class NumWordSwap implements INumWordSwap {
+export class NumberSwapedWord implements INumberSwapedWord {
     number!: number;
-    wordSwap?: string | undefined;
+    swappedWord?: string | undefined;
 
-    constructor(data?: INumWordSwap) {
+    constructor(data?: INumberSwapedWord) {
         if (data) {
             for (var property in data) {
                 if (data.hasOwnProperty(property))
@@ -81,13 +80,13 @@ export class NumWordSwap implements INumWordSwap {
     init(_data?: any) {
         if (_data) {
             this.number = _data["number"];
-            this.wordSwap = _data["wordSwap"];
+            this.swappedWord = _data["swappedWord"];
         }
     }
 
-    static fromJS(data: any): NumWordSwap {
+    static fromJS(data: any): NumberSwapedWord {
         data = typeof data === 'object' ? data : {};
-        let result = new NumWordSwap();
+        let result = new NumberSwapedWord();
         result.init(data);
         return result;
     }
@@ -95,19 +94,19 @@ export class NumWordSwap implements INumWordSwap {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["number"] = this.number;
-        data["wordSwap"] = this.wordSwap;
+        data["swappedWord"] = this.swappedWord;
         return data;
     }
 }
 
-export interface INumWordSwap {
+export interface INumberSwapedWord {
     number: number;
-    wordSwap?: string | undefined;
+    swappedWord?: string | undefined;
 }
 
 export class NumWordSwapRequest implements INumWordSwapRequest {
     maxNumber!: number;
-    numWordSwaps?: NumWordSwap[] | undefined;
+    multipleWordSwaps?: MultipleWordSwap[] | undefined;
     sortedOrder!: boolean;
 
     constructor(data?: INumWordSwapRequest) {
@@ -122,10 +121,10 @@ export class NumWordSwapRequest implements INumWordSwapRequest {
     init(_data?: any) {
         if (_data) {
             this.maxNumber = _data["maxNumber"];
-            if (Array.isArray(_data["numWordSwaps"])) {
-                this.numWordSwaps = [] as any;
-                for (let item of _data["numWordSwaps"])
-                    this.numWordSwaps!.push(NumWordSwap.fromJS(item));
+            if (Array.isArray(_data["multipleWordSwaps"])) {
+                this.multipleWordSwaps = [] as any;
+                for (let item of _data["multipleWordSwaps"])
+                    this.multipleWordSwaps!.push(MultipleWordSwap.fromJS(item));
             }
             this.sortedOrder = _data["sortedOrder"];
         }
@@ -141,10 +140,10 @@ export class NumWordSwapRequest implements INumWordSwapRequest {
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
         data["maxNumber"] = this.maxNumber;
-        if (Array.isArray(this.numWordSwaps)) {
-            data["numWordSwaps"] = [];
-            for (let item of this.numWordSwaps)
-                data["numWordSwaps"].push(item.toJSON());
+        if (Array.isArray(this.multipleWordSwaps)) {
+            data["multipleWordSwaps"] = [];
+            for (let item of this.multipleWordSwaps)
+                data["multipleWordSwaps"].push(item.toJSON());
         }
         data["sortedOrder"] = this.sortedOrder;
         return data;
@@ -153,12 +152,52 @@ export class NumWordSwapRequest implements INumWordSwapRequest {
 
 export interface INumWordSwapRequest {
     maxNumber: number;
-    numWordSwaps?: NumWordSwap[] | undefined;
+    multipleWordSwaps?: MultipleWordSwap[] | undefined;
     sortedOrder: boolean;
 }
 
+export class MultipleWordSwap implements IMultipleWordSwap {
+    multiple!: number;
+    wordSwap?: string | undefined;
+
+    constructor(data?: IMultipleWordSwap) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.multiple = _data["multiple"];
+            this.wordSwap = _data["wordSwap"];
+        }
+    }
+
+    static fromJS(data: any): MultipleWordSwap {
+        data = typeof data === 'object' ? data : {};
+        let result = new MultipleWordSwap();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["multiple"] = this.multiple;
+        data["wordSwap"] = this.wordSwap;
+        return data;
+    }
+}
+
+export interface IMultipleWordSwap {
+    multiple: number;
+    wordSwap?: string | undefined;
+}
+
 export class ApiException extends Error {
-    // message: string;
+    //message: string;
     status: number;
     response: string;
     headers: { [key: string]: any; };

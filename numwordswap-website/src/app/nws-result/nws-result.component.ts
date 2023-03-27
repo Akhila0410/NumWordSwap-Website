@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NumWordSwap } from 'generated/NumWordSwapModels';
+import { NumberSwapedWord } from 'generated/NumWordSwapModels';
 import { NwsService } from '../nws.service';
 
 @Component({
@@ -13,11 +13,11 @@ export class NumSwapResultComponent {
 
   }
 
-  get numWordSwaps(): NumWordSwap[] {
+  get numberSwappedWords(): NumberSwapedWord[] {
     return this.nwsService.nwsResponse;
   }
 
   get displayWelcomeMessage(): boolean {
-    return !this.numWordSwaps || this.numWordSwaps.length == 0;
+    return !this.numberSwappedWords || this.numberSwappedWords.length == 0;
   }
 }
