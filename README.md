@@ -75,9 +75,23 @@ Step 9 - Deleting the First two mulitples and swap words
 ![alt text](/images/Step%209%20-%20Delete%20first%20two%20multiples.png)
 
 Step 10 - Updated 12 multiple with 6 for 'Akhila' Swap word (Just as a closing shot)
+
 ![alt text](/images/Step%2010%20-%20Updated%2012%20with%206%20for%20Akhila%20swap%20word.png)
 
+## Mobile View Screenshots
+
+![alt text](/images/Iphone12Pro-view%201.png)
+
+![alt text](/images/Iphone12Pro-view%202.png)
+
+## Tablet View Screenshots
+
+![alt text](/images/Ipad%20View.png)
+
+![alt text](/images/Surface%20Pro%20View.png)
+
 ## Input Form Control Validations
+
 Multiple Already exists validation error
 
 ![alt text](images/Multiple%20already%20exists%20-%20validation.png)
@@ -85,8 +99,13 @@ Multiple Already exists validation error
 Other Boundary condition validations for Max number and Multiple entries
 
 ![alt text](/images/Maxnumber%20-%20validation%20of%20minimum%20number.png)
+
 ![alt text](/images/Maxnumber%20-%20validation%20of%20maximum%20number.png)
+
 ![alt text](/images/Add%20Multiple%20-%20validation%20of%20minimum%20number.png)
+
 ![alt text](/images/Add%20Multiple%20-%20validation%20of%20maximum%20number.png)
+
 ![alt text](/images/Edit%20Multiple%20-%20validation%20of%20minimum%20number.png)
+
 ![alt text](/images/Add%20Multiple%20-%20validation%20of%20maximum%20number.png)
