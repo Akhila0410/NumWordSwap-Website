@@ -33,6 +33,9 @@ Built an Responsive Angular website using Material UI, Bootstrap, Nswag to imple
 
 > nswag openapi2tsclient /input:https://localhost:7152/swagger/v1/swagger.json /output:generated/NumWordSwapModels.ts /typeScriptTemplate Axios
 
+4. Run cypress tests
+
+> npx cypress open
 
 ## Cypress End to End Tests
 ![alt text](/images/cypress-e2e-tests-ran-successfully.png)
