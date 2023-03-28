@@ -11,10 +11,10 @@
             <button *ngIf="!canSaveMultipleSwapWord" type="button" class="btn btn-danger" (click)="deleteMultipleSwapWord()">Delete</button>
         </div>
     </div>
-  <div class="mb-2 row px-2">
+  <div class="my-2 row px-2">
    
     <div *ngIf="newMultiple.invalid && (newMultiple.dirty || newMultiple.touched)"
-            class="alert alert-danger">
+            class="alert alert-danger p-2">
 
           <div *ngIf="newMultiple.errors?.['min']">
             The minimum valid number is 1.
