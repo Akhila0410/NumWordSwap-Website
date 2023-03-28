@@ -2,10 +2,10 @@
     <div class="card-body">
         <h3>Numbers swapped with words at each multiple</h3>
         <div *ngIf="(displayWelcomeMessage)" class="d-flex align-items-center justify-content-center welcome-block">
-            <h3 class="fs-2 text-primary">
+            <h3 class="fs-2 text-primary" id="welcomeMessage">
                 Please Enter the Max Number</h3>
         </div>
-        <div class="d-flex align-content-start flex-wrap">
+        <div class="d-flex align-content-start flex-wrap" id="nwsResult">
             <div *ngFor="let numberSwappedWord of numberSwappedWords">
                 <button type="button" class="{{'btn p-2 m-2 ' + ((numberSwappedWord.number.toString() == numberSwappedWord.swappedWord) ? 'btn-light' : 'btn-info')}}">{{numberSwappedWord.swappedWord}}</button>
             </div>
